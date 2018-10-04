@@ -20,7 +20,7 @@ const Operaciones = require('./Operaciones.js');
 
 app = Operaciones.GetOperaciones.ObtenerOperaciones(app, Alumno, Asignatura, Calificacion);
 
-const PORT = process.env.port || 4001;
+const PORT = process.env.PORT || 4001;
 
 app.listen(PORT, () => {
     console.log(`Servidor express corriendo en el puerto ${PORT}`);
