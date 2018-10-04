@@ -6,7 +6,7 @@ var GetOperaciones = {
         });
 
         // nuevo alumno
-        app.post('/api/v1/alumno', (req, res)=> {
+        app.post('/api/v1/alumno/', (req, res)=> {
             let json = req.body;
             const nuevoAlumno = Alumno(json);
 
@@ -16,6 +16,24 @@ var GetOperaciones = {
                     "message" : "Alumno creado exitosamente" ,
                     "body": alumnoCreado,
                     "error": error
+                });
+            });
+        });
+
+        app.get('/api/v1/alumno/', (req, res) => {
+            Alumno
+            .find()
+            .exec()
+            .then(listaAlumnos =>{
+                res.status(200).send({
+                    "message": "Lista de artículos obtenida exitosamente",
+                    "body": listaAlumnos
+                });
+            })
+            .catch(error => {
+                res.status(404).send({
+                    "message": error,
+                    "body": null
                 });
             });
         });
