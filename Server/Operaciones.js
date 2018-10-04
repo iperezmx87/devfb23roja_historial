@@ -73,7 +73,7 @@ var GetOperaciones = {
 
         // consulta de calificaciones por alumno
         // buscando alumno por matricula
-        app.get('/api/v1/alumno/:search/', (req, res) => {
+        app.get('/api/v1/alumno/busqueda/:search/', (req, res) => {
             const serachValue = req.params.search;
 
             // buscando con regex
