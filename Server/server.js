@@ -1,7 +1,7 @@
 // iniciando express
 const express = require('express');
 const bodyParser = require('body-parser');
-const { Alumno } = require('../BaseDatos/BaseDatos.js');
+const { Alumno, Asignatura, Calificacion } = require('../BaseDatos/BaseDatos.js');
 
 let app = express();
 
@@ -18,7 +18,7 @@ app.use(function(req, res, next) {
 // get app
 const Operaciones = require('./Operaciones.js');
 
-app = Operaciones.GetOperaciones.ObtenerOperaciones(app, Alumno);
+app = Operaciones.GetOperaciones.ObtenerOperaciones(app, Alumno, Asignatura, Calificacion);
 
 const PORT = process.env.port || 4001;
 
