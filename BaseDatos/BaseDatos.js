@@ -16,7 +16,8 @@ const AlumnoSchema = Schema({
     ApellidoPaterno: {type: String, require:true},
     ApellidoMaterno: String,
     Matricula: {type: String, require:true},
-    Asignaturas: [{type: ObjectId, ref: 'Asignatura'}]
+    Asignaturas: [{type: ObjectId, ref: 'Asignatura'}],
+    Plantel: {type: String, require:true}
 });
 
 const AsignaturaSchema = Schema({
