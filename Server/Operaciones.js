@@ -62,8 +62,7 @@ var GetOperaciones = {
 
             Alumno
             .findOne({ _id: alumnoId })
-            .populate('Asignaturas')
-            .populate('Calificacion')
+            .populate({path:'Asignaturas', populate:{path:'Calificacion'}})
             .exec()
             .then(listaAlumnos => {
                 res.status(200).send({
@@ -194,7 +193,7 @@ var GetOperaciones = {
                             });
                         })
                         .catch(error => {
-                            res.status(500).send({
+                            res.status(404).send({
                                 "message": error,
                                 "body": null
                             });
