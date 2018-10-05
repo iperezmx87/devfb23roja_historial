@@ -38,6 +38,24 @@ var GetOperaciones = {
             });
         });
 
+        app.delete('/api/v1/alumno/:id/', (req, res) => {
+            const idAlumno = req.params.id;
+            Alumno.findByIdAndDelete(idAlumno)
+            .exec()
+            .then((result) => {
+                res.status(200).send({
+                    "message": "Alumno eliminado exitosamente",
+                    "body": result
+                });
+            })
+            .catch((error) => {
+                res.status(404).send({
+                    "message": error,
+                    "body": null
+                });
+            });
+        });
+
         // obtener calificaciones del alumno por id
         app.get('/api/v1/alumno/:id/', (req, res) => {
             const alumnoId = req.params.id;  
